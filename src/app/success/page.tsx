@@ -7,7 +7,11 @@ import React, { useState } from "react";
 
 const SuccessPage = () => {
   const router = useRouter();
-  const [email, setEmail] = useState(() => localStorage.getItem("email"));
+  const [email, setEmail] = useState();
+
+  if (typeof window !== "undefined") {
+    const subscribingEmail = localStorage.getItem("email");
+  }
 
   const dismissMessage = () => {
     router.push("/");
